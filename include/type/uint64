@@ -1,0 +1,17 @@
+#pragma once
+#ifndef KARYON_TYPE_UINT64
+#define KARYON_TYPE_UINT64
+
+/**
+ * \brief Unsigned 64bit integer constant.
+ *
+ * \param const Integer constant.
+ */
+#define UINT64(const) const ## ULL
+
+/**
+ * \brief Unsigned 64bit integer.
+ */
+typedef unsigned long long int uint64;
+
+#endif /* KARYON_TYPE_UINT64 */

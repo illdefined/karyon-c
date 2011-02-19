@@ -1,0 +1,17 @@
+#pragma once
+#ifndef KARYON_TYPE_SINT64
+#define KARYON_TYPE_SINT64
+
+/**
+ * \brief Signed 64bit integer constant.
+ *
+ * \param const Integer constant.
+ */
+#define SINT64(const) const ## LL
+
+/**
+ * \brief Signed 64bit integer.
+ */
+typedef signed long long int sint64;
+
+#endif /* KARYON_TYPE_SINT64 */

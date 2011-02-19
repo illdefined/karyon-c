@@ -1,0 +1,17 @@
+#pragma once
+#ifndef KARYON_TYPE_SINT16
+#define KARYON_TYPE_SINT16
+
+/**
+ * \brief Signed 16bit integer constant.
+ *
+ * \param const Integer constant.
+ */
+#define SINT16(const) const
+
+/**
+ * \brief Signed 16bit integer.
+ */
+typedef signed short int sint16;
+
+#endif /* KARYON_TYPE_SINT16 */

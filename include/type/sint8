@@ -1,0 +1,17 @@
+#pragma once
+#ifndef KARYON_TYPE_SINT8
+#define KARYON_TYPE_SINT8
+
+/**
+ * \brief Signed 8bit integer constant.
+ *
+ * \param const Integer constant.
+ */
+#define SINT8(const) const
+
+/**
+ * \brief Signed 8bit integer.
+ */
+typedef signed char sint8;
+
+#endif /* KARYON_TYPE_SINT8 */

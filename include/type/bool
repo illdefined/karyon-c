@@ -1,0 +1,22 @@
+#pragma once
+#ifndef KARYON_TYPE_BOOL
+#define KARYON_TYPE_BOOL
+
+/**
+ * \typedef bool
+ *
+ * \brief Boolean type.
+ *
+ * A boolean variable can have a value of \c false or \c true.
+ */
+
+#if __STDC_VERSION__ >= 199901L
+typedef _Bool bool;
+#else
+typedef char bool;
+#endif
+
+#define false 0
+#define true  1
+
+#endif /* KARYON_TYPE_BOOL */

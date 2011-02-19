@@ -1,0 +1,13 @@
+#pragma once
+#ifndef KARYON_TYPE_BINT32
+#define KARYON_TYPE_BINT32
+
+#include <attribute/bitwise>
+#include <type/uint32>
+
+/**
+ * \brief Big‐endian 32bit integer.
+ */
+typedef uint32 bitwise bint32;
+
+#endif /* KARYON_TYPE_BINT32 */

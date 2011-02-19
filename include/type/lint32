@@ -1,0 +1,13 @@
+#pragma once
+#ifndef KARYON_TYPE_LINT32
+#define KARYON_TYPE_LINT32
+
+#include <attribute/bitwise>
+#include <type/uint32>
+
+/**
+ * \brief Little‐endian 32bit integer.
+ */
+typedef uint32 bitwise lint32;
+
+#endif /* KARYON_TYPE_LINT32 */
