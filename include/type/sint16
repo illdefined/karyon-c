@@ -7,7 +7,7 @@
  *
  * \param const Integer constant.
  */
-#define SINT16(const) const
+#define SINT16(const) ((sint16) const)
 
 /**
  * \brief Signed 16bit integer.

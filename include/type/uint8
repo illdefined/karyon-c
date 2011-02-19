@@ -7,7 +7,7 @@
  *
  * \param const Integer constant.
  */
-#define UINT8(const) const ## U
+#define UINT8(const) ((uint8) const ## U)
 
 /**
  * \brief Unsigned 8bit integer.

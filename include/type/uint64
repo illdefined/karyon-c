@@ -7,7 +7,7 @@
  *
  * \param const Integer constant.
  */
-#define UINT64(const) const ## ULL
+#define UINT64(const) ((uint64) const ## ULL)
 
 /**
  * \brief Unsigned 64bit integer.

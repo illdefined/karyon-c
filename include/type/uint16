@@ -7,7 +7,7 @@
  *
  * \param const Integer constant.
  */
-#define UINT16(const) const ## U
+#define UINT16(const) ((uint16) const ## U)
 
 /**
  * \brief Unsigned 16 bit integer.

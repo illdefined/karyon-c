@@ -7,7 +7,7 @@
  *
  * \param const Integer constant.
  */
-#define SINT32(const) const
+#define SINT32(const) ((sint32) const)
 
 /**
  * \brief Signed 32bit integer.

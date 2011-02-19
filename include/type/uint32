@@ -7,7 +7,7 @@
  *
  * \param const Integer constant.
  */
-#define UINT32(const) const ## U
+#define UINT32(const) ((uint32) const ## U)
 
 /**
  * \brief Unsigned 32bit integer.

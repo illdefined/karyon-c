@@ -7,7 +7,7 @@
  *
  * \param const Integer constant.
  */
-#define SINT64(const) const ## LL
+#define SINT64(const) ((sint64) const ## LL)
 
 /**
  * \brief Signed 64bit integer.

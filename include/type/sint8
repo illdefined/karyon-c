@@ -7,7 +7,7 @@
  *
  * \param const Integer constant.
  */
-#define SINT8(const) const
+#define SINT8(const) ((sint8) const)
 
 /**
  * \brief Signed 8bit integer.
