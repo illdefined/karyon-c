@@ -1,0 +1,16 @@
+#pragma once
+#ifndef KARYON_UTILITY_UNLIKELY
+#define KARYON_UTILITY_UNLIKELY
+
+#include <utility/expect>
+
+/**
+ * \brief Expect expression to yield zero value.
+ *
+ * \param expr Expression.
+ *
+ * \return \c 1 if \a expr evaluates to non‐zero value or \c 0 otherwise.
+ */
+#define unlikely (expr) expect (!!(expr), 0)
+
+#endif /* KARYON_UTILITY_UNLIKELY */

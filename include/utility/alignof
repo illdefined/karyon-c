@@ -1,0 +1,20 @@
+#pragma once
+#ifndef KARYON_UTILITY_ALIGNOF
+#define KARYON_UTILITY_ALIGNOF
+
+/**
+ * \def alignof (type)
+ *
+ * \brief Determine alignment of data type.
+ *
+ * \param type Data type.
+ *
+ * \return Data type alignment.
+ */
+
+#if !(__STDC_VERSION__ >= 201000L)
+#	warning "Incomplete alignof implementation"
+#	define alignof (type) sizeof (type)
+#endif
+
+#endif /* KARYON_UTILITY_ALIGNOF */

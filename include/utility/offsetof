@@ -1,0 +1,23 @@
+#pragma once
+#ifndef KARYON_UTILITY_OFFSETOF
+#define KARYON_UTILITY_OFFSETOF
+
+/**
+ * \def offset (type, member)
+ *
+ * \brief Determine offset of member in compound data type.
+ *
+ * \param type   Data type.
+ * \param member Compound member.
+ *
+ * \return Byte offset.
+ */
+
+#if __clang__ || __GNUC__
+#	define offsetof (type, member) __builtin_offsetof (type, member)
+#else
+#	warning "Incomplete offsetof implementation"
+#	define offsetof (type, member) ((char *) &((type *) 0)->member - (char *) 0)
+#endif
+
+#endif /* KARYON_UTILITY_OFFSETOF */

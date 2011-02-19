@@ -1,0 +1,22 @@
+#pragma once
+#ifndef KARYON_UTILITY_EXPECT
+#define KARYON_UTILITY_EXPECT
+
+/**
+ * \def expect (expr, value)
+ *
+ * \brief Expect expression to yield certain value.
+ *
+ * \param expr  Expression.
+ * \param value Expected value.
+ *
+ * \return Actual value.
+ */
+
+#if __clang__ || __GNUC__
+# define expect (expr, value) __builtin_expect ((expr), (value))
+#else
+# define expect (expr, value) (expr)
+#endif
+
+#endif /* KARYON_UTILITY_EXPECT */
