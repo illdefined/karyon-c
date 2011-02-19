@@ -1,0 +1,19 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_INLINE
+#define KARYON_ATTRIBUTE_INLINE
+
+/**
+ * \def inline
+ *
+ * \brief Inline function.
+ */
+
+#if defined __clang__ || defined __GNUC__
+#	define inline inline __attribute__ ((always_inline))
+#elif __STDC_VERSION__ >= 199901L
+#	define inline static inline
+#else
+#	define inline static
+#endif
+
+#endif /* KARYON_ATTRIBUTE_INLINE */

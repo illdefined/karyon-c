@@ -1,0 +1,20 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_PERFECT
+#define KARYON_ATTRIBUTE_PERFECT
+
+/**
+ * \def perfect
+ *
+ * \brief Constant function.
+ *
+ * A \c perfect function must not examine any values except their arguments and
+ * must not have any side‐effects.
+ */
+
+#if defined __clang__ || defined __GNUC__
+#	define perfect __attribute__ ((const))
+#else
+#	define perfect
+#endif
+
+#endif /* KARYON_ATTRIBUTE_PERFECT */

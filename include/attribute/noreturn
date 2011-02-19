@@ -1,0 +1,19 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_NORETURN
+#define KARYON_ATTRIBUTE_NORETURN
+
+/**
+ * \def noreturn
+ *
+ * \brief Function does not return.
+ */
+
+#if __STDC_VERSION__ >= 201000L
+#	define noreturn _Noreturn
+#elif defined __clang__ || defined __GNUC__
+#	define noreturn __attribute__ ((noreturn))
+#else
+#	define noreturn
+#endif
+
+#endif /* KARYON_ATTRIBUTE_NORETURN */

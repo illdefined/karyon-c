@@ -1,0 +1,18 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_RESTRICT
+#define KARYON_ATTRIBUTE_RESTRICT
+
+/**
+ * \def restrict
+ *
+ * \brief Alias‐free pointer argument.
+ *
+ * A <tt>restrict</tt>‐qualified pointer argument must not be aliased by any
+ * other argument.
+ */
+
+#if !(__STDC_VERSION__ >= 199901L)
+#	define restrict
+#endif
+
+#endif /* KARYON_ATTRIBUTE_RESTRICT */

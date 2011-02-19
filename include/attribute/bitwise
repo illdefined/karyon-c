@@ -1,0 +1,17 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_BITWISE
+#define KARYON_ATTRIBUTE_BITWISE
+
+/**
+ * \def bitwise
+ *
+ * \brief Integer type restricted to bitwise operations.
+ */
+
+#if defined __CHECKER__
+#	define bitwise __attribute__ ((bitwise))
+#else
+#	define bitwise
+#endif
+
+#endif /* KARYON_ATTRIBUTE_BITWISE */

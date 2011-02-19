@@ -1,0 +1,17 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_MANDATORY
+#define KARYON_ATTRIBUTE_MANDATORY
+
+/**
+ * \def mandatory
+ *
+ * \brief Return value must be evaluated.
+ */
+
+#if defined __clang__ || defined __GNUC__
+#	define mandatory __attribute__ ((warn_unused_result))
+#else
+#	define mandatory
+#endif
+
+#endif /* KARYON_ATTRIBUTE_MANDATORY */

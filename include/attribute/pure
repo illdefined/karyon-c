@@ -1,0 +1,20 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_PURE
+#define KARYON_ATTRIBUTE_PURE
+
+/**
+ * \def pure
+ *
+ * \brief Pure function.
+ *
+ * A \c pure function must not examine any value except their arguments or
+ * global variables and must not have any side‐effects.
+ */
+
+#if defined __clang__ || defined __GNUC__
+#	define pure __attribute__ ((pure))
+#else
+#	define pure
+#endif
+
+#endif /* KARYON_ATTRIBUTE_PURE */

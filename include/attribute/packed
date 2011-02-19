@@ -1,0 +1,20 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_PACKED
+#define KARYON_ATTRIBUTE_PACKED
+
+/**
+ * \def packed
+ *
+ * \brief Pack variable or field.
+ *
+ * A \c packed variable or field should be aligned to the smallest possible
+ * boundary.
+ */
+
+#if defined __clang__ || defined __GNUC__
+#	define packed __attribute__ ((packed))
+#else
+#	error "No packed implementation"
+#endif
+
+#endif /* KARYON_ATTRIBUTE_PACKED */

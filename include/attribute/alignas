@@ -1,0 +1,21 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_ALIGNAS
+#define KARYON_ATTRIBUTE_ALIGNAS
+
+/**
+ * \def alignas (bound)
+ *
+ * \brief Align variable to boundary specified by \a bound.
+ *
+ * \param bound Alignment boundary.
+ */
+
+#if __STDC_VERSION__ >= 201000L
+#	define alignas (bound) _Alignas (bound)
+#elif defined __clang__ || defined __GNUC__
+#	define alignas (bound) __attribute__ ((aligned (bound)))
+#else
+#	error "No alignas implementation"
+#endif
+
+#endif /* KARYON_ATTRIBUTE_ALIGNAS */

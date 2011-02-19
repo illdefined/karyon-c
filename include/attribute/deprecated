@@ -1,0 +1,17 @@
+#pragma once
+#ifndef KARYON_ATTRIBUTE_DEPRECATED
+#define KARYON_ATTRIBUTE_DEPRECATED
+
+/**
+ * \def deprecated
+ *
+ * \brief Deprecated variable or function.
+ */
+
+#if defined __clang__ || defined __GNUC__
+#	define deprecated __attribute__ ((deprecated))
+#else
+#	define deprecated
+#endif
+
+#endif /* KARYON_ATTRIBUTE_DEPRECATED */
