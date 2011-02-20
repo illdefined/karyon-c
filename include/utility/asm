@@ -1,0 +1,17 @@
+#pragma once
+#ifndef KARYON_UTILITY_ASM
+#define KARYON_UTILITY_ASM
+
+/**
+ * \def asm
+ *
+ * \brief Inline assembly.
+ */
+
+#if defined __clang__ || defined __GNUC__ || defined __TINYC__
+#	define asm __asm__
+#else
+#	error "No asm implementation"
+#endif
+
+#endif /* KARYON_UTILITY_ASM */
