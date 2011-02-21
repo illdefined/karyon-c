@@ -1,0 +1,8 @@
+# Doxygen documentation
+doxygen/
+
+# Binary
+karyon
+
+# Hidden files
+.*
