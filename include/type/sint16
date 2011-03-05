@@ -2,6 +2,8 @@
 #ifndef KARYON_TYPE_SINT16
 #define KARYON_TYPE_SINT16
 
+#include <utility/assert>
+
 /**
  * \brief Signed 16bit integer constant.
  *
@@ -21,5 +23,7 @@ typedef __INT16_TYPE__ sint16;
 #else
 typedef signed short int sint16;
 #endif
+
+assert (sizeof (sint16) == 2, "Invalid sint16 size")
 
 #endif /* KARYON_TYPE_SINT16 */

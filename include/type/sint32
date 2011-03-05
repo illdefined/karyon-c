@@ -2,6 +2,8 @@
 #ifndef KARYON_TYPE_SINT32
 #define KARYON_TYPE_SINT32
 
+#include <utility/assert>
+
 /**
  * \brief Signed 32bit integer constant.
  *
@@ -21,5 +23,7 @@ typedef __INT32_TYPE__ sint32;
 #else
 typedef signed int sint32;
 #endif
+
+assert (sizeof (sint32) == 4, "Invalid sint32 size")
 
 #endif /* KARYON_TYPE_SINT32 */

@@ -2,6 +2,8 @@
 #ifndef KARYON_TYPE_UINT64
 #define KARYON_TYPE_UINT64
 
+#include <utility/assert>
+
 /**
  * \brief Unsigned 64bit integer constant.
  *
@@ -21,5 +23,7 @@ typedef __UINT64_TYPE__ uint64;
 #else
 typedef unsigned long long int uint64;
 #endif
+
+assert (sizeof (uint64) == 8, "Invalid uint64 size")
 
 #endif /* KARYON_TYPE_UINT64 */

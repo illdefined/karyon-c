@@ -2,6 +2,8 @@
 #ifndef KARYON_TYPE_UINT32
 #define KARYON_TYPE_UINT32
 
+#include <utility/assert>
+
 /**
  * \brief Unsigned 32bit integer constant.
  *
@@ -21,5 +23,7 @@ typedef __UINT32_TYPE__ uint32;
 #else
 typedef unsigned int uint32;
 #endif
+#
+assert (sizeof (uint32) == 4, "Invalid uint32 size")
 
 #endif /* KARYON_TYPE_UINT32 */

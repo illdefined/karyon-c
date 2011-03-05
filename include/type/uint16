@@ -2,6 +2,8 @@
 #ifndef KARYON_TYPE_UINT16
 #define KARYON_TYPE_UINT16
 
+#include <utility/assert>
+
 /**
  * \brief Unsigned 16bit integer constant.
  *
@@ -21,5 +23,7 @@ typedef __UINT16_TYPE__ uint16;
 #else
 typedef unsigned short int uint16;
 #endif
+#
+assert (sizeof (uint16) == 2, "Invalid uint16 size")
 
 #endif /* KARYON_TYPE_UINT16 */

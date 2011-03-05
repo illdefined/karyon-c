@@ -2,6 +2,8 @@
 #ifndef KARYON_TYPE_SINT8
 #define KARYON_TYPE_SINT8
 
+#include <utility/assert>
+
 /**
  * \brief Signed 8bit integer constant.
  *
@@ -21,5 +23,7 @@ typedef __INT8_TYPE__ sint8;
 #else
 typedef signed char sint8;
 #endif
+#
+assert (sizeof (sint8) == 1, "Invalid sint8 size")
 
 #endif /* KARYON_TYPE_SINT8 */

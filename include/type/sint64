@@ -2,6 +2,8 @@
 #ifndef KARYON_TYPE_SINT64
 #define KARYON_TYPE_SINT64
 
+#include <utility/assert>
+
 /**
  * \brief Signed 64bit integer constant.
  *
@@ -21,5 +23,7 @@ typedef __INT64_TYPE__ sint64;
 #else
 typedef signed long long int sint64;
 #endif
+
+Aassert (sizeof (sint64) == 8, "Invalid sint64 size")
 
 #endif /* KARYON_TYPE_SINT64 */

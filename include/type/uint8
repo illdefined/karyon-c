@@ -2,6 +2,8 @@
 #ifndef KARYON_TYPE_UINT8
 #define KARYON_TYPE_UINT8
 
+#include <utility/assert>
+
 /**
  * \brief Unsigned 8bit integer constant.
  *
@@ -21,5 +23,7 @@ typedef __UINT8_TYPE__ uint8;
 #else
 typedef unsigned char uint8;
 #endif
+#
+assert (sizeof (uint8) == 1, "Invalid uint8 size")
 
 #endif /* KARYON_TYPE_UINT8 */
