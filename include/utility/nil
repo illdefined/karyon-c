@@ -3,10 +3,11 @@
 #define KARYON_UTILITY_NIL
 
 #include <type/word>
+#include <utility/maximum>
 
 /**
  * \brief Invalid address.
  */
-#define nil ((void *) ~WORD(0))
+#define nil ((void *) maximum(word))
 
 #endif /* KARYON_UTILITY_NIL */
