@@ -11,6 +11,6 @@
  *
  * \return \c 1 if \a expr evaluates to non‐zero value or \c 0 otherwise.
  */
-#define unlikely (expr) expect (!!(expr), 0)
+#define unlikely(expr) expect (!!(expr), 0)
 
 #endif /* KARYON_UTILITY_UNLIKELY */

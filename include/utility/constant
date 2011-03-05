@@ -14,9 +14,9 @@
  */
 
 #if defined __clang__ || defined __GNUC__ || defined __TINYC__
-#	define constant (expr) __builtin_constant_p(expr)
+#	define constant(expr) __builtin_constant_p (expr)
 #else
-#	define constant (expr) 0
+#	define constant(expr) 0
 #endif
 
 #endif /* KARYON_UTILITY_CONSTANT */

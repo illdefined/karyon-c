@@ -6,20 +6,22 @@
 #include <type/uint32>
 #include <type/uint64>
 
+#include <utility/constant>
+
 #if defined __clang__ || defined __GNUC__
 #	define byteswap(x) \
 		__builtin_choose_expr (__builtin_types_compatible_p (__typeof__ (x), uint16), \
 			((x) & UINT16(0xff00)) >> 8 | \
 			((x) & UINT16(0x00ff)) << 8, \
 			__builtin_choose_expr (__builtin_types_compatible_p (__typeof__ (x), uint32), \
-				__builtin_choose_expr (__builtin_constant_p (x), \
+				__builtin_choose_expr (constant (x), \
 					((x) & UINT32(0xff000000)) >> 24 | \
 					((x) & UINT32(0x00ff0000)) >>  8 | \
 					((x) & UINT32(0x0000ff00)) <<  8 | \
 					((x) & UINT32(0x000000ff)) << 24, \
 					__builtin_bswap32(x)), \
 				__builtin_choose_expr (__builtin_types_compatible_p (__typeof__ (x), uint64), \
-					__builtin_choose_expr (__builtin_constant_p (x), \
+					__builtin_choose_expr (constant (x), \
 						((x) & UINT64(0xff00000000000000)) >> 56 | \
 						((x) & UINT64(0x00ff000000000000)) >> 40 | \
 						((x) & UINT64(0x0000ff0000000000)) >> 24 | \

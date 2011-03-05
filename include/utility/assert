@@ -15,9 +15,9 @@
  */
 
 #if __STDC_VERSION__ >= 201000L
-#	define assert (expr, mesg) _Static_assert ((expr), (mesg))
+#	define assert(expr, mesg) _Static_assert ((expr), (mesg))
 #else
-#	define assert (expr, mesg)
+#	define assert(expr, mesg)
 #endif
 
 #endif /* KARYON_UTILITY_ASSERT */

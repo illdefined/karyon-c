@@ -14,11 +14,11 @@
 
 #if __STDC_VERSION__ >= 201000L
 #elif defined __clang__ || defined __GNUC__ || defined __TINYC__
-#	define alignof (type) __alignof__ (type)
+#	define alignof(type) __alignof__ (type)
 #else
 #	warning "Incomplete alignof implementation"
 #	include <utility/offsetof>
-#	define alignof (type) offsetof (struct { char c; type member }, member)
+#	define alignof(type) offsetof (struct { char c; type member }, member)
 #endif
 
 #endif /* KARYON_UTILITY_ALIGNOF */

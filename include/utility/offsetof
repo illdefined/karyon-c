@@ -14,10 +14,10 @@
  */
 
 #if __clang__ || __GNUC__
-#	define offsetof (type, member) __builtin_offsetof (type, member)
+#	define offsetof(type, member) __builtin_offsetof (type, member)
 #else
 #	warning "Incomplete offsetof implementation"
-#	define offsetof (type, member) ((char *) &((type *) 0)->member - (char *) 0)
+#	define offsetof(type, member) ((char *) &((type *) 0)->member - (char *) 0)
 #endif
 
 #endif /* KARYON_UTILITY_OFFSETOF */
