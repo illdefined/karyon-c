@@ -7,11 +7,15 @@
  *
  * \param const Integer constant.
  */
-#define WORD(const) const ## UL
+#define WORD(const) ((word) const ## UL)
 
 /**
  * \brief Machine word‐sized integer type.
  */
+#if defined __UINTPTR_TYPE__
+typedef __UINTPTR_TYPE__ word;
+#else
 typedef unsigned long int word;
+#endif
 
 #endif /* KARYON_TYPE_WORD */

@@ -7,11 +7,19 @@
  *
  * \param const Integer constant.
  */
-#define SINT16(const) ((sint16) const)
+#if defined __INT16_C
+#	define SINT16(const) ((sint16) __INT16_C(const))
+#else
+#	define SINT16(const) ((sint16) const)
+#endif
 
 /**
  * \brief Signed 16bit integer.
  */
+#if defined __INT16_TYPE__
+typedef __INT16_TYPE__ sint16;
+#else
 typedef signed short int sint16;
+#endif
 
 #endif /* KARYON_TYPE_SINT16 */

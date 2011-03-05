@@ -7,11 +7,19 @@
  *
  * \param const Integer constant.
  */
-#define UINT16(const) ((uint16) const ## U)
+#if defined __UINT16_C
+#	define UINT16(const) ((uint16) __UINT16_C(const))
+#else
+#	define UINT16(const) ((uint16) const ## U)
+#endif
 
 /**
  * \brief Unsigned 16 bit integer.
  */
+#if defined __UINT16_TYPE__
+typedef __UINT16_TYPE__ uint16;
+#else
 typedef unsigned short int uint16;
+#endif
 
 #endif /* KARYON_TYPE_UINT16 */

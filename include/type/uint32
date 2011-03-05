@@ -7,11 +7,19 @@
  *
  * \param const Integer constant.
  */
-#define UINT32(const) ((uint32) const ## U)
+#if defined __UINT32_C
+#	define UINT32(const) ((uint32) __UINT32_C(const))
+#else
+#	define UINT32(const) ((uint32) const ## U)
+#endif
 
 /**
  * \brief Unsigned 32bit integer.
  */
+#if defined __UINT32_TYPE__
+typedef __UINT32_TYPE__ uint32;
+#else
 typedef unsigned int uint32;
+#endif
 
 #endif /* KARYON_TYPE_UINT32 */

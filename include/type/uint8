@@ -7,11 +7,19 @@
  *
  * \param const Integer constant.
  */
-#define UINT8(const) ((uint8) const ## U)
+#if defined __UINT8_C
+#	define UINT8(const) ((uint8) __UINT8_C(const))
+#else
+#	define UINT8(const) ((uint8) const ## U)
+#endif
 
 /**
  * \brief Unsigned 8bit integer.
  */
+#if defined __UINT8_TYPE__
+typedef __UINT8_TYPE__ uint8;
+#else
 typedef unsigned char uint8;
+#endif
 
 #endif /* KARYON_TYPE_UINT8 */

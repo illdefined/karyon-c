@@ -7,11 +7,19 @@
  *
  * \param const Integer constant.
  */
-#define SINT64(const) ((sint64) const ## LL)
+#if defined __INT64_C
+#	define SINT64(const) ((sint64) __INT64_C(const))
+#else
+#	define SINT64(const) ((sint64) const ## LL)
+#endif
 
 /**
  * \brief Signed 64bit integer.
  */
+#if defined __INT64_TYPE__
+typedef __INT64_TYPE__ sint64;
+#else
 typedef signed long long int sint64;
+#endif
 
 #endif /* KARYON_TYPE_SINT64 */

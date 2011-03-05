@@ -7,11 +7,19 @@
  *
  * \param const Integer constant.
  */
-#define SINT8(const) ((sint8) const)
+#if defined __INT8_C
+#	define SINT8(const) ((sint8) __INT8_C(const))
+#else
+#	define SINT8(const) ((sint8) const)
+#endif
 
 /**
  * \brief Signed 8bit integer.
  */
+#if defined __INT8_TYPE__
+typedef __INT8_TYPE__ sint8;
+#else
 typedef signed char sint8;
+#endif
 
 #endif /* KARYON_TYPE_SINT8 */
