@@ -1,0 +1,12 @@
+#pragma once
+#ifndef KARYON_UTILITY_NIL
+#define KARYON_UTILITY_NIL
+
+#include <type/word>
+
+/**
+ * \brief Invalid address.
+ */
+#define nil ((void *) ~WORD(0))
+
+#endif /* KARYON_UTILITY_NIL */
