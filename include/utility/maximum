@@ -1,0 +1,16 @@
+#pragma once
+#ifndef KARYON_UTILITY_MAXIMUM
+#define KARYON_UTILITY_MAXIMUM
+
+/**
+ * \brief Determine maximim value of an integral type.
+ *
+ * \param type Type.
+ *
+ * \return Maximum value.
+ */
+#define maximum(type) (~(type) 0 < (type) 0 \
+		? ~((type) 1 << sizeof (type) * 8 - 1) \
+		: ~(type) 0)
+
+#endif /* KARYON_UTILITY_MAXIMUM */
