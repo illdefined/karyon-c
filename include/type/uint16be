@@ -1,0 +1,13 @@
+#pragma once
+#ifndef KARYON_TYPE_UINT16BE
+#define KARYON_TYPE_UINT16BE
+
+#include <attribute/bitwise>
+#include <type/uint16>
+
+/**
+ * \brief Big‐endian 16bit integer.
+ */
+typedef uint16 bitwise uint16be;
+
+#endif /* KARYON_TYPE_UINT16BE */

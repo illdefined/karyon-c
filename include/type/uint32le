@@ -1,0 +1,13 @@
+#pragma once
+#ifndef KARYON_TYPE_UINT32LE
+#define KARYON_TYPE_UINT32LE
+
+#include <attribute/bitwise>
+#include <type/uint32>
+
+/**
+ * \brief Little‐endian 32bit integer.
+ */
+typedef uint32 bitwise uint32le;
+
+#endif /* KARYON_TYPE_UINT32LE */
