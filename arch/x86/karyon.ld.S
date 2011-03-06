@@ -39,7 +39,7 @@ SECTIONS {
 		*(.data)
 	} :data
 
-	.bss ALIGN(PAGE_SIZE):
+	.bss ALIGN(WORD_SIZE):
 	AT(ADDR(.bss) - VIRTUAL_BASE) {
 		*(.bss)
 	} :data
