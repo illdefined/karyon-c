@@ -4,5 +4,8 @@ doxygen/
 # Binary
 karyon
 
+# Linker script
+karyon.ld
+
 # Hidden files
 .*
