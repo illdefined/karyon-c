@@ -17,10 +17,6 @@ CPPFLAGS += -std=c99
 CFLAGS   += -fmerge-all-constants -fstrict-overflow -fwhole-program -freg-struct-return -fshort-enums
 .endif
 
-.if $(CC) == gcc
-CFLAGS   += -combine
-.endif
-
 ldS := arch/$(ARCH)/karyon.ld.S
 
 karyon: .depend karyon.ld
