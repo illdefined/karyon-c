@@ -25,4 +25,13 @@
  */
 #define WORD_SIZE WORD(8)
 
+/**
+ * \brief Calculate physical address.
+ *
+ * \param virtual Virtual address.
+ *
+ * \return Physical address.
+ */
+#define PHYSICAL(virtual) (virtual - VIRTUAL_BASE)
+
 #endif /* KARYON_MEMORY */
