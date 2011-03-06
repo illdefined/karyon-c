@@ -2,4 +2,6 @@
 CFLAGS += -m64 -mcld -msahf -mno-red-zone -mcmodel=kernel
 .endif
 
-karyon += arch/x86/stack.S
+karyon += \
+	arch/x86/multiboot.S \
+	arch/x86/stack.S
