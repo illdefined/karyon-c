@@ -14,7 +14,7 @@
  * message specifed by the string literal \a mesg.
  */
 
-#if __STDC_VERSION__ >= 201000L
+#if !defined __ASSEMBLER__ && __STDC_VERSION__ >= 201000L
 #	define assert(expr, mesg) _Static_assert ((expr), (mesg))
 #else
 #	define assert(expr, mesg)
