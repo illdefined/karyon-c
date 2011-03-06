@@ -1,0 +1,23 @@
+#pragma once
+#ifndef KARYON_MEMORY
+#define KARYON_MEMORY
+
+/**
+ * \file
+ *
+ * \brief Memory layout definitions.
+ */
+
+#include <type/word>
+
+/**
+ * \brief Virtual kernel base address.
+ */
+#define VIRTUAL_BASE WORD(0xffff800000000000)
+
+/**
+ * \brief Page size.
+ */
+#define PAGE_SIZE WORD(0x1000)
+
+#endif /* KARYON_MEMORY */
