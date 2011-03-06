@@ -1,0 +1,30 @@
+#pragma once
+#ifndef KARYON_MULTIBOOT
+#define KARYON_MULTIBOOT
+
+/**
+ * \file
+ *
+ * \brief Multiboot definitions.
+ */
+
+#include <type/uint32>
+
+/**
+ * \brief Multiboot header magic.
+ */
+#define MULTIBOOT_HEADER_MAGIC UINT32(0x1badb002)
+
+/**
+ * \brief Multiboot header flags.
+ *
+ * Align modules to page boundary.
+ */
+#define MULTIBOOT_HEADER_FLAGS UINT32(0x00000001)
+
+/**
+ * \brief Multiboot boot loader magic.
+ */
+#define MULTIBOOT_LOADER_MAGIC UINT32(0x2badb002)
+
+#endif /* KARYON_MULTIBOOT */
