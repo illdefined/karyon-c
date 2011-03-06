@@ -20,4 +20,9 @@
  */
 #define PAGE_SIZE WORD(0x1000)
 
+/**
+ * \brief Machine word size.
+ */
+#define WORD_SIZE WORD(8)
+
 #endif /* KARYON_MEMORY */
