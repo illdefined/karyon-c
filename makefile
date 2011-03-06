@@ -23,7 +23,7 @@ CFLAGS   += -combine
 
 ldS := arch/$(ARCH)/karyon.ld.S
 
-karyon: .depend
+karyon: .depend karyon.ld
 	$(SPARSE) $(CPPFLAGS) $(karyon)
 	$(CROSS)$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $(karyon) $(LDFLAGS)
 
