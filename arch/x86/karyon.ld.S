@@ -45,14 +45,30 @@ SECTIONS {
 	} :data
 }
 
-PROVIDE(SYMBOL(text_addr) = LOADADDR(.text));
+PROVIDE(SYMBOL(text_head) = LOADADDR(.text));
 PROVIDE(SYMBOL(text_size) = SIZEOF(.text));
+PROVIDE(SYMBOL(text_tail) = SYMBOL(text_head) + SYMBOL(text_size));
 
-PROVIDE(SYMBOL(stack_addr) = LOADADDR(.stack));
+PROVIDE(SYMBOL(stack_head) = LOADADDR(.stack));
 PROVIDE(SYMBOL(stack_size) = SIZEOF(.stack));
+PROVIDE(SYMBOL(stack_tail) = SYMBOL(stack_head) + SYMBOL(stack_size));
 
-PROVIDE(SYMBOL(rodata_addr) = LOADADDR(.rodata));
+PROVIDE(SYMBOL(rodata_head) = LOADADDR(.rodata));
 PROVIDE(SYMBOL(rodata_size) = SIZEOF(.rodata));
+PROVIDE(SYMBOL(rodata_tail) = SYMBOL(rodata_head) + SYMBOL(rodata_size));
 
-PROVIDE(SYMBOL(bss_addr) = LOADADDR(.bss));
+PROVIDE(SYMBOL(bss_head) = LOADADDR(.bss));
 PROVIDE(SYMBOL(bss_size) = SIZEOF(.bss));
+PROVIDE(SYMBOL(bss_tail) = SYMBOL(bss_head) + SYMBOL(bss_size));
+
+PROVIDE(SYMBOL(text_page) = ALIGN(SYMBOL(text_head), PAGE_SIZE) / PAGE_SIZE);
+PROVIDE(SYMBOL(text_pges) = ALIGN(SYMBOL(text_size), PAGE_SIZE) / PAGE_SIZE);
+
+PROVIDE(SYMBOL(stack_page) = ALIGN(SYMBOL(stack_head), PAGE_SIZE) / PAGE_SIZE);
+PROVIDE(SYMBOL(stack_pges) = ALIGN(SYMBOL(stack_size), PAGE_SIZE) / PAGE_SIZE);
+
+PROVIDE(SYMBOL(rodata_page) = ALIGN(SYMBOL(rodata_head), PAGE_SIZE) / PAGE_SIZE);
+PROVIDE(SYMBOL(rodata_pges) = ALIGN(SYMBOL(rodata_size), PAGE_SIZE) / PAGE_SIZE);
+
+PROVIDE(SYMBOL(data_page) = ALIGN(SYMBOL(data_head), PAGE_SIZE) / PAGE_SIZE);
+PROVIDE(SYMBOL(data_pges) = ALIGN(SYMBOL(bss_tail) - SYMBOL(data_head)) / PAGE_SIZE);
