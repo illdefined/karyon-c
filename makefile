@@ -1,6 +1,6 @@
-CC       ?= clang
-CPP      ?= $(CC) -E
-SPARSE   ?= sparse -Wbitwise
+CC       := clang
+CPP      := $(CC) -E
+SPARSE   := sparse -Wbitwise
 
 CPPFLAGS := -nostdinc -Iarch/$(ARCH)/include -Iinclude -ftabstop=4
 CFLAGS   := -pipe -ffreestanding -Wall -O2 -fno-common
