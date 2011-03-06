@@ -20,6 +20,7 @@
 
 #if defined __ASSEMBLER__
 #	define UINT32(const) const
+#else
 #	if defined __UINT32_C
 #		define UINT32(const) ((uint32) __UINT32_C(const))
 #	else
