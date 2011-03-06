@@ -8,6 +8,11 @@
 
 #include <utility/constant>
 
+#if defined __CHECKER__
+extern uint32 __builtin_bswap32(uint32);
+extern uint64 __builtin_bswap64(uint64);
+#endif
+
 #if defined __clang__ || defined __GNUC__
 #	define byteswap(x) \
 		__builtin_choose_expr (__builtin_types_compatible_p (__typeof__ (x), uint16), \
