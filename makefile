@@ -4,7 +4,7 @@ SPARSE   ?= sparse -Wbitwise
 
 CPPFLAGS := -nostdinc -Iarch/$(ARCH)/include -Iinclude -ftabstop=4
 CFLAGS   := -pipe -ffreestanding -Wall -O2 -fno-common
-LDFLAGS  := -nostdlib -static
+LDFLAGS  := -nostdlib -static -Wl,-T karyon.ld
 
 .if !defined(ARCH)
 .	if $(MACHINE) == i386 || $(MACHINE) == x86_64
@@ -21,15 +21,21 @@ CFLAGS   += -fmerge-all-constants -fstrict-overflow -fwhole-program -freg-struct
 CFLAGS   += -combine
 .endif
 
+ldS := arch/$(ARCH)/karyon.ld.S
+
 karyon: .depend
 	$(SPARSE) $(CPPFLAGS) $(karyon)
 	$(CROSS)$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $(karyon) $(LDFLAGS)
 
-.depend: $(karyon)
-	$(CROSS)$(CPP) $(CPPFLAGS) -M -MT karyon $(karyon) >$@
+karyon.ld: .depend
+	$(CROSS)$(CPP) $(CPPFLAGS) -P -o $@ $(ldS)
+
+.depend: $(ldS) $(karyon)
+	$(CROSS)$(CPP) $(CPPFLAGS) -M -MT karyon.ld $(ldS) >$@
+	$(CROSS)$(CPP) $(CPPFLAGS) -M -MT karyon $(karyon) >>$@
 
 clean:
-	rm -f .depend karyon
+	rm -f .depend karyon.ld karyon
 
 .PHONY: clean
 .SUFFIXES:
