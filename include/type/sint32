@@ -5,23 +5,33 @@
 #include <utility/assert>
 
 /**
+ * \def SINT32(const)
+ *
  * \brief Signed 32bit integer constant.
  *
  * \param const Integer constant.
  */
-#if defined __INT32_C
-#	define SINT32(const) ((sint32) __INT32_C(const))
-#else
-#	define SINT32(const) ((sint32) const)
-#endif
 
 /**
+ * \typedef sint32
+ *
  * \brief Signed 32bit integer.
  */
-#if defined __INT32_TYPE__
-typedef __INT32_TYPE__ sint32;
+
+#if defined __ASSEMBLER__
+#	define SINT32(const) const
 #else
+#	if defined __INT32_C
+#		define SINT32(const) ((sint32) __INT32_C(const))
+#	else
+#		define SINT32(const) ((sint32) const)
+#	endif
+
+#	if defined __INT32_TYPE__
+typedef __INT32_TYPE__ sint32;
+#	else
 typedef signed int sint32;
+#	endif
 #endif
 
 assert (sizeof (sint32) == 4, "Invalid sint32 size")

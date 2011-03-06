@@ -10,10 +10,12 @@
  * A boolean variable can have a value of \c false or \c true.
  */
 
-#if __STDC_VERSION__ >= 199901L
+#if !defined __ASSEMBLER__
+#	if __STDC_VERSION__ >= 199901L
 typedef _Bool bool;
-#else
+#	else
 typedef char bool;
+#	endif
 #endif
 
 #define false 0

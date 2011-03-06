@@ -5,23 +5,33 @@
 #include <utility/assert>
 
 /**
+ * \def SINT64(const)
+ *
  * \brief Signed 64bit integer constant.
  *
  * \param const Integer constant.
  */
-#if defined __INT64_C
-#	define SINT64(const) ((sint64) __INT64_C(const))
-#else
-#	define SINT64(const) ((sint64) const ## LL)
-#endif
 
 /**
+ * \typedef sint64
+ *
  * \brief Signed 64bit integer.
  */
-#if defined __INT64_TYPE__
-typedef __INT64_TYPE__ sint64;
+
+#if defined __ASSEMBLER__
+#	define SINT64(const) const
 #else
+#	if defined __INT64_C
+#		define SINT64(const) ((sint64) __INT64_C(const))
+#	else
+#		define SINT64(const) ((sint64) const ## LL)
+#	endif
+
+#	if defined __INT64_TYPE__
+typedef __INT64_TYPE__ sint64;
+#	else
 typedef signed long long int sint64;
+#	endif
 #endif
 
 Aassert (sizeof (sint64) == 8, "Invalid sint64 size")

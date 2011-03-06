@@ -5,25 +5,34 @@
 #include <utility/assert>
 
 /**
+ * \def UINT32(const)
+ *
  * \brief Unsigned 32bit integer constant.
  *
  * \param const Integer constant.
  */
-#if defined __UINT32_C
-#	define UINT32(const) ((uint32) __UINT32_C(const))
-#else
-#	define UINT32(const) ((uint32) const ## U)
-#endif
 
 /**
+ * \typedef uint32
+ *
  * \brief Unsigned 32bit integer.
  */
-#if defined __UINT32_TYPE__
+
+#if defined __ASSEMBLER__
+#	define UINT32(const) const
+#	if defined __UINT32_C
+#		define UINT32(const) ((uint32) __UINT32_C(const))
+#	else
+#		define UINT32(const) ((uint32) const ## U)
+#	endif
+
+#	if defined __UINT32_TYPE__
 typedef __UINT32_TYPE__ uint32;
-#else
+#	else
 typedef unsigned int uint32;
+#	endif
 #endif
-#
+
 assert (sizeof (uint32) == 4, "Invalid uint32 size")
 
 #endif /* KARYON_TYPE_UINT32 */

@@ -5,25 +5,35 @@
 #include <utility/assert>
 
 /**
+ * \def UINT16(const) const
+ *
  * \brief Unsigned 16bit integer constant.
  *
  * \param const Integer constant.
  */
-#if defined __UINT16_C
-#	define UINT16(const) ((uint16) __UINT16_C(const))
-#else
-#	define UINT16(const) ((uint16) const ## U)
-#endif
 
 /**
+ * \typedef uint16
+ *
  * \brief Unsigned 16 bit integer.
  */
-#if defined __UINT16_TYPE__
-typedef __UINT16_TYPE__ uint16;
+
+#if defined __ASSEMBLER__
+#	define UINT16(const) const
 #else
+#	if defined __UINT16_C
+#		define UINT16(const) ((uint16) __UINT16_C(const))
+#	else
+#		define UINT16(const) ((uint16) const ## U)
+#	endif
+
+#	if defined __UINT16_TYPE__
+typedef __UINT16_TYPE__ uint16;
+#	else
 typedef unsigned short int uint16;
+#	endif
 #endif
-#
+
 assert (sizeof (uint16) == 2, "Invalid uint16 size")
 
 #endif /* KARYON_TYPE_UINT16 */

@@ -5,25 +5,35 @@
 #include <utility/assert>
 
 /**
+ * \def SINT8(const)
+ *
  * \brief Signed 8bit integer constant.
  *
  * \param const Integer constant.
  */
-#if defined __INT8_C
-#	define SINT8(const) ((sint8) __INT8_C(const))
-#else
-#	define SINT8(const) ((sint8) const)
-#endif
 
 /**
+ * \typedef sint8
+ *
  * \brief Signed 8bit integer.
  */
-#if defined __INT8_TYPE__
-typedef __INT8_TYPE__ sint8;
+
+#if defined __ASSEMBLER__
+#	define SINT8(const) const
 #else
+#	if defined __INT8_C
+#		define SINT8(const) ((sint8) __INT8_C(const))
+#	else
+#		define SINT8(const) ((sint8) const)
+#	endif
+
+#	if defined __INT8_TYPE__
+typedef __INT8_TYPE__ sint8;
+#	else
 typedef signed char sint8;
+#	endif
 #endif
-#
+
 assert (sizeof (sint8) == 1, "Invalid sint8 size")
 
 #endif /* KARYON_TYPE_SINT8 */

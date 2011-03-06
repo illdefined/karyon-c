@@ -5,23 +5,33 @@
 #include <utility/assert>
 
 /**
+ * \def UINT64(const)
+ *
  * \brief Unsigned 64bit integer constant.
  *
  * \param const Integer constant.
  */
-#if defined __UINT64_C
-#	define UINT64(const) ((uint64) __UINT64_C(const))
-#else
-#	define UINT64(const) ((uint64) const ## ULL)
-#endif
 
 /**
+ * \typedef uint64
+ *
  * \brief Unsigned 64bit integer.
  */
-#if defined __UINT64_TYPE__
-typedef __UINT64_TYPE__ uint64;
+
+#if defined __ASEMBLER__
+#	define UINT64(const) const
 #else
+#	if defined __UINT64_C
+#		define UINT64(const) ((uint64) __UINT64_C(const))
+#	else
+#		define UINT64(const) ((uint64) const ## ULL)
+#	endif
+
+#	if defined __UINT64_TYPE__
+typedef __UINT64_TYPE__ uint64;
+#	else
 typedef unsigned long long int uint64;
+#	endif
 #endif
 
 assert (sizeof (uint64) == 8, "Invalid uint64 size")

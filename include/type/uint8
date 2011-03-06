@@ -5,25 +5,35 @@
 #include <utility/assert>
 
 /**
+ * \def UINT8(const)
+ *
  * \brief Unsigned 8bit integer constant.
  *
  * \param const Integer constant.
  */
-#if defined __UINT8_C
-#	define UINT8(const) ((uint8) __UINT8_C(const))
-#else
-#	define UINT8(const) ((uint8) const ## U)
-#endif
 
 /**
+ * \typedef uint8
+ *
  * \brief Unsigned 8bit integer.
  */
-#if defined __UINT8_TYPE__
-typedef __UINT8_TYPE__ uint8;
+
+#if defined __ASSEMBLER__
+#	define UINT8(const) const
 #else
+#	if defined __UINT8_C
+#		define UINT8(const) ((uint8) __UINT8_C(const))
+#	else
+#		define UINT8(const) ((uint8) const ## U)
+#	endif
+
+#	if defined __UINT8_TYPE__
+typedef __UINT8_TYPE__ uint8;
+#	else
 typedef unsigned char uint8;
+#	endif
 #endif
-#
+
 assert (sizeof (uint8) == 1, "Invalid uint8 size")
 
 #endif /* KARYON_TYPE_UINT8 */

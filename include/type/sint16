@@ -5,23 +5,33 @@
 #include <utility/assert>
 
 /**
+ * \def SINT16(const)
+ *
  * \brief Signed 16bit integer constant.
  *
  * \param const Integer constant.
  */
-#if defined __INT16_C
-#	define SINT16(const) ((sint16) __INT16_C(const))
-#else
-#	define SINT16(const) ((sint16) const)
-#endif
 
 /**
+ * \typedef sint16
+ *
  * \brief Signed 16bit integer.
  */
-#if defined __INT16_TYPE__
-typedef __INT16_TYPE__ sint16;
+
+#if defined __ASSEMBLER__
+#	define SINT16(const) const
 #else
+#	if defined __INT16_C
+#		define SINT16(const) ((sint16) __INT16_C(const))
+#	else
+#		define SINT16(const) ((sint16) const)
+#	endif
+
+#	if defined __INT16_TYPE__
+typedef __INT16_TYPE__ sint16;
+#	else
 typedef signed short int sint16;
+#	endif
 #endif
 
 assert (sizeof (sint16) == 2, "Invalid sint16 size")
