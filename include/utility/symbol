@@ -1,0 +1,17 @@
+#pragma once
+#ifndef KARYON_UTILITY_SYMBOL
+#define KARYON_UTILITY_SYMBOL
+
+#if defined __ASSEMBLER__
+#	if defined __USER_LABEL_PREFIX__
+#		define SYMBOL_CONCAT(prefix, symbol) prefix ## symbol
+#		define SYMBOL_PREFIX(prefix, symbol) SYMBOL_CONCAT(prefix, symbol)
+#		define SYMBOL(symbol) SYMBOL_PREFIX(__USER_LABEL_PREFIX__, symbol)
+#	else
+#		define SYMBOL(symbol) _ ## symbol
+#	endif
+#else
+#	define SYMBOL(symbol) symbol
+#endif
+
+#endif /* KARYON_UTILITY_SYMBOL */
