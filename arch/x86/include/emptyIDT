@@ -1,0 +1,9 @@
+#pragma once
+#ifndef KARYON_EMPTYIDT
+#define KARYON_EMPTYIDT
+
+#include <IDT>
+
+extern const struct IDT emptyIDT;
+
+#endif /* KARYON_EMPTYIDT */
