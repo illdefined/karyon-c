@@ -14,7 +14,7 @@ ARCH     := x86
 
 .if $(CC) == clang || $(CC) == gcc
 CPPFLAGS += -std=c99
-CFLAGS   += -fmerge-all-constants -fstrict-overflow -fwhole-program -freg-struct-return -fshort-enums
+CFLAGS   += -fmerge-all-constants -fstrict-overflow -freg-struct-return -fshort-enums
 .endif
 
 ldS := arch/$(ARCH)/karyon.ld.S
