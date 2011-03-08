@@ -10,6 +10,7 @@ PHDRS {
 	text      PT_LOAD FLAGS(5);
 	rodata    PT_LOAD FLAGS(4);
 	data      PT_LOAD FLAGS(6);
+	stack     PT_LOAD FLAGS(6);
 }
 
 SECTIONS {
@@ -47,8 +48,7 @@ SECTIONS {
 	.stack ALIGN(PAGE_SIZE) :
 	AT(ADDR(.stack) - VIRTUAL_BASE) {
 		*(.stack)
-	} :data
-
+	} :stack
 }
 
 PROVIDE(SYMBOL(text_head) = LOADADDR(.text));
