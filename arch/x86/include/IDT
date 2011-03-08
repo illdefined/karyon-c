@@ -1,0 +1,14 @@
+#pragma once
+#ifndef KARYON_IDT
+#define KARYON_IDT
+
+#include <attribute/packed>
+#include <type/uint16>
+#include <type/uint64>
+
+packed struct IDT {
+	uint16 limit;
+	uint64 offset;
+};
+
+#endif /* KARYON_IDT */
