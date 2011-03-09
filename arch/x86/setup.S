@@ -3,21 +3,7 @@
 #include <utility/symbol>
 
 	.section .setup
-	.global SYMBOL(entry)
-SYMBOL(entry):
-	.code32
+	.global SYMBOL(setup)
+SYMBOL(setup):
 
-	/* Check for boot loader magic */
-	cmp $MULTIBOOT_LOADER_MAGIC, %eax
-	jne fault
-
-fault:
-	/* Cause a triple fault */
-	lidt PHYSICAL(SYMBOL(emptyIDT))
-	int $0
-
-loop:
-	hlt
-	jmp loop
-
-entry64:
+	mov SYMBOL(stack) + PAGE_SIZE, %rsp
