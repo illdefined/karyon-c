@@ -2,7 +2,7 @@
 #include <utility/symbol>
 
 	.section .stack, "wa", @nobits
-	.align WORD_SIZE
+	.align 16
 	.global SYMBOL(stack)
 SYMBOL(stack):
 	.space PAGE_SIZE
